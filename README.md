@@ -1,27 +1,50 @@
-### **Influencer DAO Governance (SM-DAO)**
+# SM-DAO: Community-Driven Content Creation on Solana
 
-- **Description**: Fans **vote on content direction** for influencers, YouTubers, or streamers.
-- **How It Works**: Viewers stake governance tokens to suggest/vote on content themes. **Stakers get rewards if content performs well.**
-- **Use Case**: Encourages a community-driven creator economy.
-- **High-Level Features**:
-    - Listing Multiple Creators on different platforms (Youtube, Instagram)
-    - Creator Profiles (YT Subscribers, Instagram Followers and Relevant Links)
-    - User Profiles (Wallet Address, Supported Creators, Supported Decisions)
-    - Staking / Voting Tiers
-        - Current Idea (Cheaper)
-        - New Idea (Expensive)
-    - Staking rewards: Exclusive content, rebate on tokens, distribution of video profits if video performs well
-    - Tokens can be donated to the creators as well, as a form of appreciation
-    - **Card structure**: Question, Image, Options, Vote Distribution Comparison
-        - eg: What does the community prefer in the future direction of this channel?
-            
-            A: Educational Blockchain Dev Content **60%**
-            
-            B: Educational Crypto Trading Content **40%**
-            
-    - Include a place to provide tokenomics info and an introduction to the product
-- **Tokenomics (SM Token)**:
-    - Users can buy tokens to be used on the platform
-    - Tokens will be used to maintain the platform and will be released back to active creators on the platform as part of an Airdrop
-    - Active users / contributors will also get airdrops
-    - Will have a limit on individuals to ensure no sussy whale stuff happening
+## Overview
+SM-DAO is a decentralized governance platform built on Solana, enabling fans to actively participate in content direction for their favorite creators through token-based voting.
+
+## Core Features
+- **Multi-Platform Integration**
+    - Support for YouTube, Instagram, and other content platforms
+    - Comprehensive creator profiles with analytics
+    - User profiles with wallet integration and voting history
+
+- **Governance Mechanism**
+    - Two-tier voting system:
+        - Current Ideas (Low stake requirement)
+        - New Proposals (Higher stake requirement)
+    - Transparent voting cards showing:
+        - Proposal question
+        - Visual content
+        - Options with real-time vote distribution
+        - Historical voting data
+
+- **Tokenomics (SM Token)**
+    - Staking rewards:
+        - Exclusive creator content access
+        - Token rebates
+        - Revenue sharing for successful content
+    - Anti-whale measures
+    - Creator appreciation through token donations
+    - Regular airdrops for active participants
+
+## Rewards System
+- Performance-based staking rewards
+- Community contribution incentives
+- Creator-specific token pools
+- Platform maintenance funding through token utility
+
+## Technical Stack
+- Solana blockchain
+- SPL Token implementation
+- Decentralized governance contracts
+- Cross-platform API integrations
+
+## Example Use Case
+Content Direction Vote:
+```
+Q: Future channel direction preference?
+A: Educational Blockchain Dev Content (60%)
+B: Educational Crypto Trading Content (40%)
+```
+
