@@ -78,12 +78,12 @@ export default function ProposalDetail() {
       // Mock proposal data
       const mockProposal = {
         id: parseInt(id),
-        title: "Implement Community Rewards Program",
+        title: "Superteam OnlyFans",
         description:
-          "Create a system to reward active members with tokens for their contributions to the platform. This program aims to increase engagement and recognize valuable input from community members.",
+          "Create a proposal to get Superteam to create an OnlyFans account. This will help increase clout and engagement for Superteam and Solana.",
         creator: "5xjDe5TmBgdekHaGB5d4iLcGbKjPy7gLbr6KNQXVGxWN",
-        creatorName: "DAO Founder",
-        options: ["Yes", "No", "Abstain"],
+        creatorName: "Ricknesh",
+        options: ["Support", "Don't Support"],
         votes: [150, 50, 20],
         totalVotes: 220,
         createTime: new Date().getTime() - 172800000, // 2 days ago

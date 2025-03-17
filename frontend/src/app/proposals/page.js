@@ -72,11 +72,11 @@ export default function ProposalsList() {
       const mockProposals = [
         {
           id: 1,
-          title: "Implement Community Rewards Program",
+          title: "Get CoinGecko YouTube to post brainrot",
           description:
-            "Create a system to reward active members with tokens for their contributions to the platform.",
+            "Create a proposal to get CoinGecko YouTube to post brainrot on their channel. This will help increase awareness and adoption on crypto.",
           creator: "5xjDe5TmBgdekHaGB5d4iLcGbKjPy7gLbr6KNQXVGxWN",
-          creatorName: "DAO Founder",
+          creatorName: "CG Fans",
           options: ["Yes", "No", "Abstain"],
           votes: [150, 50, 20],
           totalVotes: 220,
@@ -87,33 +87,33 @@ export default function ProposalsList() {
         },
         {
           id: 2,
-          title: "Add NFT Integration for Creator Content",
+          title: "Superteam OnlyFans",
           description:
-            "Integrate NFT functionality to allow creators to mint and sell their content as NFTs on the platform.",
+            "Create a proposal to get Superteam to create an OnlyFans account. This will help increase clout and engagement for Superteam and Solana.",
           creator: "7nYu5mzzLAzMx2sGgMRW9A4QKD5W1xgZ1GuJGmKJcihM",
-          creatorName: "NFT Enthusiast",
+          creatorName: "Ricknesh",
           options: ["Support", "Don't Support"],
           votes: [80, 30],
           totalVotes: 110,
           createTime: new Date().getTime() - 432000000, // 5 days ago
           endTime: new Date().getTime() + 172800000, // 2 days from now
           isActive: true,
-          proposalType: "Idea",
+          proposalType: "Proposal",
         },
         {
           id: 3,
-          title: "Increase Minimum Stake for Proposals",
+          title: "Get Rizzler to do Memecoin Reviews",
           description:
-            "Increase the minimum stake required to create formal proposals to prevent spam and ensure quality.",
+            "Onboard Rizzler to the Solana Ecosystem and get him to review memecoins for exposure.",
           creator: "6uTsfKTtJAJQr8QgAEuQB6aq9pwYijWLi9xCpVvL8Y1G",
-          creatorName: "Governance Expert",
+          creatorName: "Rizz Expert",
           options: ["Yes", "No"],
           votes: [100, 120],
           totalVotes: 220,
           createTime: new Date().getTime() - 604800000, // 7 days ago
           endTime: new Date().getTime() - 86400000, // 1 day ago
           isActive: false,
-          proposalType: "Proposal",
+          proposalType: "Idea",
         },
       ];
 
