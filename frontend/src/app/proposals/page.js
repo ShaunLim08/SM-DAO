@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
@@ -84,6 +85,7 @@ export default function ProposalsList() {
           endTime: new Date().getTime() + 86400000, // 1 day from now
           isActive: true,
           proposalType: "Proposal",
+          imageUrl: "https://pbs.twimg.com/profile_banners/2412652615/1714099870/1500x500", // Add image URL here
         },
         {
           id: 2,
@@ -99,6 +101,7 @@ export default function ProposalsList() {
           endTime: new Date().getTime() + 172800000, // 2 days from now
           isActive: true,
           proposalType: "Proposal",
+          imageUrl: "https://pbs.twimg.com/media/GjrAeOVaYAAZWe6?format=jpg&name=large", // Add image URL here
         },
         {
           id: 3,
@@ -114,6 +117,7 @@ export default function ProposalsList() {
           endTime: new Date().getTime() - 86400000, // 1 day ago
           isActive: false,
           proposalType: "Idea",
+          imageUrl: "https://pbs.twimg.com/media/Glot5eUWIAADhbj?format=jpg&name=large", // Add image URL here
         },
       ];
 
@@ -268,76 +272,107 @@ export default function ProposalsList() {
                     key={proposal.id}
                     variants={itemVariants}
                     whileHover={{ y: -5, scale: 1.02 }}
-                    className="bg-black/40 backdrop-blur-xl rounded-xl p-6 border border-pink-500/10 hover:border-pink-500/20 transition-all duration-300 shadow-lg hover:shadow-pink-500/10">
-                    <div className="flex justify-between items-start mb-3">
-                      <span
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          proposal.proposalType === "Idea"
-                            ? "bg-blue-600"
-                            : "bg-green-600"
-                        }`}>
-                        {proposal.proposalType}
-                      </span>
-                      <span
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          proposal.isActive ? "bg-green-600" : "bg-red-600"
-                        }`}>
-                        {proposal.isActive ? "Active" : "Ended"}
-                      </span>
+                    className="bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden border border-pink-500/10 hover:border-pink-500/20 transition-all duration-300 shadow-lg hover:shadow-pink-500/10">
+                    {/* Image Container */}
+                    <div className="relative w-full h-40 overflow-hidden">
+                      {proposal.imageUrl ? (
+                        <Image
+                          src={proposal.imageUrl}
+                          alt={proposal.title}
+                          fill
+                          className="object-cover"
+                          placeholder="blur"
+                          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PC9zdmc+"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-pink-500/30 to-purple-600/30 flex items-center justify-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-12 w-12 text-pink-500/50"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                        </div>
+                      )}
                     </div>
-                    <h2 className="text-lg font-bold mb-2 line-clamp-2">
-                      {proposal.title}
-                    </h2>
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                      {proposal.description}
-                    </p>
-
-                    <div className="mb-4">
-                      <div className="flex justify-between text-xs mb-1 text-gray-400">
-                        <span>Total Votes: {proposal.totalVotes}</span>
-                        <span>
-                          {proposal.isActive
-                            ? `${Math.ceil(
-                                (proposal.endTime - new Date().getTime()) /
-                                  86400000
-                              )}d left`
-                            : "Ended"}
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex justify-between items-start mb-3">
+                        <span
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            proposal.proposalType === "Idea"
+                              ? "bg-blue-600"
+                              : "bg-green-600"
+                          }`}>
+                          {proposal.proposalType}
+                        </span>
+                        <span
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            proposal.isActive ? "bg-green-600" : "bg-red-600"
+                          }`}>
+                          {proposal.isActive ? "Active" : "Ended"}
                         </span>
                       </div>
+                      <h2 className="text-lg font-bold mb-2 line-clamp-2">
+                        {proposal.title}
+                      </h2>
+                      <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                        {proposal.description}
+                      </p>
 
-                      <div className="w-full bg-gray-700 rounded-full h-2.5 mb-1">
-                        <div
-                          className="bg-purple-600 h-2.5 rounded-full"
-                          style={{
-                            width: `${Math.round(
+                      <div className="mb-4">
+                        <div className="flex justify-between text-xs mb-1 text-gray-400">
+                          <span>Total Votes: {proposal.totalVotes}</span><span>
+                            {proposal.isActive
+                              ? `${Math.ceil(
+                                  (proposal.endTime - new Date().getTime()) /
+                                    86400000
+                                )}d left`
+                              : "Ended"}
+                          </span>
+                        </div>
+
+                        <div className="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                          <div
+                            className="bg-purple-600 h-2.5 rounded-full"
+                            style={{
+                              width: `${Math.round(
+                                (proposal.votes[0] / proposal.totalVotes) * 100
+                              )}%`,
+                            }}></div>
+                        </div>
+
+                        <div className="flex justify-between text-xs">
+                          <span>
+                            {proposal.options[0]}:{" "}
+                            {Math.round(
                               (proposal.votes[0] / proposal.totalVotes) * 100
-                            )}%`,
-                          }}></div>
+                            )}
+                            %
+                          </span>
+                          <span>
+                            {proposal.options[1]}:{" "}
+                            {Math.round(
+                              (proposal.votes[1] / proposal.totalVotes) * 100
+                            )}
+                            %
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="flex justify-between text-xs">
-                        <span>
-                          {proposal.options[0]}:{" "}
-                          {Math.round(
-                            (proposal.votes[0] / proposal.totalVotes) * 100
-                          )}
-                          %
-                        </span>
-                        <span>
-                          {proposal.options[1]}:{" "}
-                          {Math.round(
-                            (proposal.votes[1] / proposal.totalVotes) * 100
-                          )}
-                          %
-                        </span>
-                      </div>
+                      <Link
+                        href={`/proposals/${proposal.id}`}
+                        className="block text-center bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-2 px-4 rounded-lg w-full transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25">
+                        {proposal.isActive ? "Vote Now" : "View Results"}
+                      </Link>
                     </div>
-
-                    <Link
-                      href={`/proposals/${proposal.id}`}
-                      className="block text-center bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-2 px-4 rounded-lg w-full transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25">
-                      {proposal.isActive ? "Vote Now" : "View Results"}
-                    </Link>
                   </motion.div>
                 ))}
               </motion.div>
